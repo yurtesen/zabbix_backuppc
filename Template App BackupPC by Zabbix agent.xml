@@ -13,7 +13,7 @@
             <name>Template App BackupPC by Zabbix agent</name>
             <description>The template to monitor BackupPC metrics API by Zabbix agent without need for extra scripts on server.&#13;
 &#13;
-Template Version v0.0.1 - Evren Yurtesen&#13;
+Template Version v0.0.2 - Evren Yurtesen&#13;
 Tested on Zabbix5 and BackupPC 4.4.1 (needs updated metrics)</description>
             <groups>
                 <group>
