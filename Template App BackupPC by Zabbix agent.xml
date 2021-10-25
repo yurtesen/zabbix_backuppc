@@ -13,7 +13,7 @@
             <name>Template App BackupPC by Zabbix agent</name>
             <description>The template to monitor BackupPC metrics API by Zabbix agent without need for extra scripts on server.&#13;
 &#13;
-Template Version v0.0.1 - Evren Yurtesen&#13;
+Template Version v0.0.2 - Evren Yurtesen&#13;
 Tested on Zabbix5 and BackupPC 4.4.1 (needs updated metrics)</description>
             <groups>
                 <group>
@@ -776,7 +776,7 @@ A newly added most may not have enough incremental backups</description>
                             <manual_close>YES</manual_close>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template App BackupPC by Zabbix agent:backuppc.disabled.[{#HOST}].last()}=0 and ({Template App BackupPC by Zabbix agent:backuppc.last_size_new.[{#HOST}].last()}&gt;{$BACKUPPC.SIZECHANGE.CRIT} or {Template App BackupPC by Zabbix agent:backuppc.last_size.[{#HOST}].abschange()}&gt;{$BACKUPPC.SIZECHANGE.CRIT})</expression>
+                            <expression>{Template App BackupPC by Zabbix agent:backuppc.disabled.[{#HOST}].last()}=0 and ({Template App BackupPC by Zabbix agent:backuppc.last_size_new.[{#HOST}].last()}&gt;{$BACKUPPC.SIZECHANGE.CRIT:"{#HOST}"} or {Template App BackupPC by Zabbix agent:backuppc.last_size.[{#HOST}].abschange()}&gt;{$BACKUPPC.SIZECHANGE.CRIT:"{#HOST}"})</expression>
                             <name>{#HOST}: Size difference larger than {$BACKUPPC.SIZECHANGE.CRIT:&quot;{#HOST}&quot;}</name>
                             <priority>AVERAGE</priority>
                             <description>There are new files larger than or size difference larger than {$BACKUPPC.SIZECHANGE.CRIT:&quot;{#HOST}&quot;} between last backup and previus backup.&#13;
@@ -785,7 +785,7 @@ Critical size per backup server or per backup host can be adjusted.</description
                             <manual_close>YES</manual_close>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template App BackupPC by Zabbix agent:backuppc.disabled.[{#HOST}].last()}=0 and ({Template App BackupPC by Zabbix agent:backuppc.last_size_new.[{#HOST}].last()}&gt;{$BACKUPPC.SIZECHANGE.WARN} or {Template App BackupPC by Zabbix agent:backuppc.last_size.[{#HOST}].abschange()}&gt;{$BACKUPPC.SIZECHANGE.WARN})</expression>
+                            <expression>{Template App BackupPC by Zabbix agent:backuppc.disabled.[{#HOST}].last()}=0 and ({Template App BackupPC by Zabbix agent:backuppc.last_size_new.[{#HOST}].last()}&gt;{$BACKUPPC.SIZECHANGE.WARN:"{#HOST}"} or {Template App BackupPC by Zabbix agent:backuppc.last_size.[{#HOST}].abschange()}&gt;{$BACKUPPC.SIZECHANGE.WARN:"{#HOST}"})</expression>
                             <name>{#HOST}: Size difference larger than {$BACKUPPC.SIZECHANGE.WARN:&quot;{#HOST}&quot;}</name>
                             <priority>WARNING</priority>
                             <description>There are new files larger than or size difference larger than {$BACKUPPC.SIZECHANGE.WARN:&quot;{#HOST}&quot;} between last backup and previus backup.&#13;
