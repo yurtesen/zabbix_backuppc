@@ -104,7 +104,7 @@ return JSON.stringify(obj);
 function getLastBackupData(hostArray) {
     var lastBackup = {};
     var lastBackupType;
-    if (hostArray['full_age'] &gt; hostArray['incr_age']) {
+    if (hostArray['full_start_time'] &gt; hostArray['incr_start_time']) {
         lastBackupType = 'full';
     } else {
         lastBackupType = 'incr';
