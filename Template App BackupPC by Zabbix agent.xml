@@ -191,8 +191,8 @@ function getLastBackupData(hostArray) {
                     <preprocessing>
                         <step>
                             <type>REGEX</type>
-                            <params>\n\s?\n(.*)
-\1</params>
+                            <params>{(?:[^{}]*|(?R))*}
+\0</params>
                         </step>
                     </preprocessing>
                 </item>
